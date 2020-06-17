@@ -1,0 +1,45 @@
+{
+  "name": "@logicamente.info/react-input-month",
+  "version": "1.0.0",
+  "description": "React component that enables the use of inputs with month type in browsers that does not support it nativelly",
+  "main": "lib/InputMonth.js",
+  "module": "es/InputMonth.js",
+  "files": [
+    "css",
+    "es",
+    "lib",
+    "umd"
+  ],
+  "scripts": {
+    "build": "nwb build-react-component",
+    "clean": "nwb clean-module && nwb clean-demo",
+    "prepublishOnly": "npm run build",
+    "start": "nwb serve-react-demo",
+    "test": "nwb test-react"
+  },
+  "dependencies": {
+    "prop-types": "^15.7.2",
+    "uuid": "^8.1.0"
+  },
+  "peerDependencies": {
+    "react": "16.x"
+  },
+  "devDependencies": {
+    "nwb": "0.25.x",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "author": "Logicamente Info",
+  "homepage": "https://logicamente.info",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LogicamenteInfo/react-input-month"
+  },
+  "keywords": [
+    "react component",
+    "input",
+    "month",
+    "polyfill"
+  ]
+}
