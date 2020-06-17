@@ -50,6 +50,16 @@ export default class Demo extends Component {
         <button type="button" onClick={() => this.setState({ monthInjected: '2020-06' })}>Inject</button>
         <p>Value: {this.state.monthInjected}</p>
       </form>
+
+      <form>
+        <label><b>Month (pt-BR)</b></label>
+        <InputMonth
+          lang="pt-BR"
+          value={this.state.monthBR}
+          onChange={(monthBR) => this.setState({ monthBR })}
+        />
+        <p>Value: {this.state.monthBR}</p>
+      </form>
     </div>
   }
 }

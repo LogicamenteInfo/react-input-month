@@ -61,7 +61,7 @@ export default class InputMonth extends React.Component {
           className="imp--month--button imp--button"
           type="button"
           children={this.state.locales[`ABBR_${monthName.substr(0, 3)}`]}
-          onClick={(e) => this.onMonthClick(e, monthName, i + 1)}
+          onClick={(e) => this.onMonthClick(e, this.state.locales[monthName], i + 1)}
         />
       );
     });
@@ -161,18 +161,18 @@ export default class InputMonth extends React.Component {
     switch (code) {
       case 38: // up
         if (cMonth === '' || cMonth === 12)
-          this.onMonthClick(null, monthNames[0], 1, this.selectInputMonth.bind(this));
+          this.onMonthClick(null, this.state.locales[monthNames[0]], 1, this.selectInputMonth.bind(this));
         else
-          this.onMonthClick(null, monthNames[cMonth], cMonth + 1, this.selectInputMonth.bind(this));
+          this.onMonthClick(null, this.state.locales[monthNames[cMonth]], cMonth + 1, this.selectInputMonth.bind(this));
         break;
       case 39: // right
         this.selectInputYear();
         break;
       case 40: // down
         if (cMonth === '' || cMonth === 1)
-          this.onMonthClick(null, monthNames[11], 12, this.selectInputMonth.bind(this));
+          this.onMonthClick(null, this.state.locales[monthNames[11]], 12, this.selectInputMonth.bind(this));
         else
-          this.onMonthClick(null, monthNames[cMonth - 2], cMonth - 1, this.selectInputMonth.bind(this));
+          this.onMonthClick(null, this.state.locales[monthNames[cMonth - 2]], cMonth - 1, this.selectInputMonth.bind(this));
         break;
     }
   }
