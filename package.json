@@ -1,6 +1,6 @@
 {
   "name": "@logicamente.info/react-input-month",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "React component that enables the use of inputs with month type in browsers that does not support it nativelly",
   "main": "lib/InputMonth.js",
   "module": "es/InputMonth.js",
@@ -11,7 +11,7 @@
     "umd"
   ],
   "scripts": {
-    "build": "nwb build-react-component",
+    "build": "nwb build-react-component --copy-files",
     "clean": "nwb clean-module && nwb clean-demo",
     "prepublishOnly": "npm run build",
     "start": "nwb serve-react-demo",
