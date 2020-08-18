@@ -4,6 +4,9 @@ import Locales from './Locales';
 import { v4 } from 'uuid';
 import './Style/style.css';
 
+const currentMonth = (new Date()).getMonth();
+const currentYear = (new Date()).getFullYear();
+
 export default class InputMonth extends React.Component {
   static propTypes = {
     lang: PropTypes.string,
@@ -58,7 +61,8 @@ export default class InputMonth extends React.Component {
     Object.keys(this.state.locales).filter(m => !m.includes('ABBR')).forEach((monthName, i) => {
       mB.push(
         <button
-          className="imp--month--button imp--button"
+          key={i}
+          className={`imp--month--button imp--button ${currentMonth === i ? 'imp--month--current' : ''}`}
           type="button"
           children={this.state.locales[`ABBR_${monthName.substr(0, 3)}`]}
           onClick={(e) => this.onMonthClick(e, this.state.locales[monthName], i + 1)}
@@ -73,7 +77,8 @@ export default class InputMonth extends React.Component {
     for (let i = this.state.startYear; i < this.state.startYear + 9; i++) {
       yB.push(
         <button
-          className="imp--year--button imp--button"
+          key={i}
+          className={`imp--year--button imp--button ${currentYear === i ? 'imp--year--current' : ''}`}
           type="button"
           data-year={i}
           children={i}

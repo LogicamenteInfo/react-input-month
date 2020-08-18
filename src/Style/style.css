@@ -42,3 +42,7 @@
 .imp--viewer--controls button:hover {
     font-weight: bold;
 }
+
+.imp--month--current, .imp--year--current {
+    background-color: #F6F6F6;
+}

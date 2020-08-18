@@ -1,6 +1,6 @@
 {
   "name": "@logicamente.info/react-input-month",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "React component that enables the use of inputs with month type in browsers that does not support it nativelly",
   "main": "lib/InputMonth.js",
   "module": "es/InputMonth.js",
