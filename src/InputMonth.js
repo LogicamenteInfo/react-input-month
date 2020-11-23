@@ -134,6 +134,10 @@ export default class InputMonth extends React.Component {
     }
   }
 
+  onInputFocus(e) {
+    this.onInputClick(e);
+  }
+
   onInputBlur() {
     setTimeout(() => {
       if (!this.isInContainer) {
@@ -145,12 +149,15 @@ export default class InputMonth extends React.Component {
 
   async onInputChange() {
     if (this.state.month !== '' && this.state.year !== '') {
-      console.log('changed')
       this.props.onChange(`${this.state.year}-${this.state.month.toString().padStart(2, '0')}`);
     }
   }
 
   onInputKeyDown(e) {
+    if (
+      (e.shiftKey && e.keyCode === 9 && e.target.selectionStart === 0) ||
+      (!e.shiftKey && e.keyCode === 9 && e.target.selectionEnd === e.target.value.length)
+    ) { return true }
     e.preventDefault();
     const keyCode = e.keyCode;
     this.onInputBlur();
@@ -178,6 +185,9 @@ export default class InputMonth extends React.Component {
           this.onMonthClick(null, this.state.locales[monthNames[11]], 12, this.selectInputMonth.bind(this));
         else
           this.onMonthClick(null, this.state.locales[monthNames[cMonth - 2]], cMonth - 1, this.selectInputMonth.bind(this));
+        break;
+      case 9: // tab
+        this.selectInputYear();
         break;
     }
   }
@@ -216,6 +226,9 @@ export default class InputMonth extends React.Component {
             year: cYear - 1,
           }, this.selectInputYear.bind(this));
         }
+        break;
+      case 9: // tab
+        this.selectInputMonth();
         break;
     }
   }
@@ -271,6 +284,7 @@ export default class InputMonth extends React.Component {
           onKeyPress={(e) => e.preventDefault()}
           onKeyDown={this.onInputKeyDown.bind(this)}
           onChange={this.onInputChange.bind(this)}
+          onFocus={this.onInputFocus.bind(this)}
         />
         <div className="imp--viewers">
           <div
