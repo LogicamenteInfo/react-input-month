@@ -15,7 +15,7 @@
     "clean": "nwb clean-module && nwb clean-demo",
     "prepublishOnly": "npm run build",
     "start": "nwb serve-react-demo",
-    "test": "nwb test-react"
+    "test": "echo No tests required"
   },
   "dependencies": {
     "prop-types": "^15.7.2",
